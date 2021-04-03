@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctsopenmrs
+  labels:
+    app: openmrs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: openmrs
+  template:
+    metadata:
+      labels:
+        app: openmrs
+    spec:
+      containers:
+      - name: openmrs
+        image: dockamol/openmedicalrecordsystem
+        ports:
+        - containerPort: 8080
